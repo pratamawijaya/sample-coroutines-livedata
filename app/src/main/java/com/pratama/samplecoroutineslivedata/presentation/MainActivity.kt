@@ -17,11 +17,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel.currentTimeTransformed.observe(this, Observer {
-            currentTime.text = it
+            currentTime.text = "Current time : $it"
         })
 
         viewModel.currentWeather.observe(this, Observer {
             Log.d("tag", "current weather value $it")
+            currentWeather.text = "Current weather : $it"
         })
+
+        viewModel.cachedValue.observe(this, Observer {
+            cachedValue.text = "Cached value : $it"
+        })
+
+        btnRefresh.setOnClickListener {
+            viewModel.onRefresh()
+        }
     }
 }

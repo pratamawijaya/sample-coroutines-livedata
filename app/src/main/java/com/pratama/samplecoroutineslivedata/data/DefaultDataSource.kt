@@ -15,7 +15,6 @@ interface DataSource {
     suspend fun fetchNewData()
 }
 
-
 class DefaultDataSource(private val ioDispatcher: CoroutineDispatcher) : DataSource {
     override fun getCurrentTime(): LiveData<Long> = liveData {
         while (true) {
@@ -23,7 +22,6 @@ class DefaultDataSource(private val ioDispatcher: CoroutineDispatcher) : DataSou
             delay(1000)
         }
     }
-
 
     // Exposes a LiveData of changing weather conditions, every 2 seconds.
     private val weatherConditions = listOf("Sunny", "Cloudy", "Rainy", "Stormy", "Snowy")

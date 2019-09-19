@@ -16,7 +16,6 @@ class MainViewModel(private val dataSource: DataSource) : ViewModel() {
         const val LOADING_STRING = "Loading..."
     }
 
-
     val currentTime = dataSource.getCurrentTime()
 
     val currentTimeTransformed = currentTime.switchMap {
