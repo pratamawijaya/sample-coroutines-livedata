@@ -2,7 +2,7 @@ package com.pratama.samplecoroutineslivedata.data.datasource.remote.model
 
 import com.squareup.moshi.Json
 
-internal enum class ImageSizeRemoteModel {
+enum class ImageSizeRemoteModel {
     @field:Json(name = "medium")
     MEDIUM,
     @field:Json(name = "small")
