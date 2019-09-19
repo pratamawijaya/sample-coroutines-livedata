@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 loading.visibility = GONE
                 tvAlbumFetched.text = "size : ${albums.size}"
                 albums.map { album ->
-                    Log.d("tag", "data -> ${album.name} ${album.images.size}")
+                    Log.d("tag", "data -> ${album.name} ${album.images[3]}")
                 }
             }
         })
