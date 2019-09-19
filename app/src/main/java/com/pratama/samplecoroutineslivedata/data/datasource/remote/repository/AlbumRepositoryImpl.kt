@@ -1,11 +1,8 @@
 package com.pratama.samplecoroutineslivedata.data.datasource.remote.repository
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.pratama.samplecoroutineslivedata.data.datasource.remote.AlbumServices
 import com.pratama.samplecoroutineslivedata.data.datasource.remote.mapper.AlbumRemoteMapper
-import com.pratama.samplecoroutineslivedata.data.datasource.remote.resultLiveData
-import com.pratama.samplecoroutineslivedata.domain.model.Album
 import com.pratama.samplecoroutineslivedata.domain.repository.AlbumRepository
 
 internal class AlbumRepositoryImpl(
@@ -13,11 +10,9 @@ internal class AlbumRepositoryImpl(
     private val albumRemoteMapper: AlbumRemoteMapper
 ) : AlbumRepository {
 
-    override fun getAlbumByPhrase(phrase: String): LiveData<List<Album>> {
-        return liveData {
-            val response = service.searchAlbumAsync(phrase)
-            emit(albumRemoteMapper.mapToList(response.results.albumMatches.album))
-        }
+    override fun getAlbumByPhrase(phrase: String) = liveData {
+        val response = service.searchAlbumAsync(phrase)
+        emit(albumRemoteMapper.mapToList(response.results.albumMatches.album))
     }
 
     // W I P
